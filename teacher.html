@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+<body class="bg-[#8511B4] h-full w-full">
+    <nav class=" flex justify-between items-center pt-3 px-20">
+        <img class="h-28 w-28" src="images/classroom++.png" alt="">
+        <div class="text-white flex gap-10 text-semibold">
+            <a href="">HOME</a>
+            <a href="">INSTITUTE</a>
+            <a href="">PROFILE</a>
+        </div>
+    </nav>
+    <hr class="mx-20">
+    <div class="main w-[88vw] ml-20 mt-5 flex justify-between items-center gap-3">
+        <div class="profile-section bg-white w-[24vw] h-screen rounded-lg overflow-hidden">
+            <div class="profile bg-blue-300 w-[18vw] h-[14vw] m-8 rounded-lg" ></div>
+            <div class="menu w-[18vw] h-[46vh] rounded-lg m-8 block border-2 border-zinc-900">
+                <span class="inline-block p-5">
+                <a class=" mr-32 mb-8" id="create-menu-button" href="#">Create Lecture</a>
+                <hr class="my-4">
+                <a class=" mr-28 mb-8" href="">Mark Attendence</a>
+                <hr class="my-4">
+                <a class=" mr-36 mb-8" href="">Settings</a>
+                </span>
+            </div>
+            <div class="w-[18vw] h-[8vh] border-2 border-zinc-900 rounded-lg m-8 flex items-center pl-6">
+                <h1>Log Out</h1>
+            </div>
+        </div>
+        <div class="lecture-section bg-white w-[70vw] h-screen rounded-lg">
+            <div class="time-subject w-full h-20 flex justify-between px-10 items-center font-semibold">
+                <h1>SEM 1 - 27 JUL 2024</h1>
+                <h1 id="current-time">Time - </span></h1>
+            </div>
+            <div class="mt-6 ml-10">
+                <a class="w-30 h-18 bg-blue-600 p-4 rounded-lg font-semibold" href="#" id="show-lecture-form">Create Lecture</a>
+            </div>
+            <div id="lecture-form" class="hidden mt-6 ml-10">
+                <form id="new-lecture-form" class="bg-white p-4 rounded-lg shadow-md">
+                    <div class="mb-4">
+                        <label for="start-time" class="block text-sm font-medium text-gray-700">Start Time</label>
+                        <input type="time" id="start-time" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mb-4">
+                        <label for="end-time" class="block text-sm font-medium text-gray-700">End Time</label>
+                        <input type="time" id="end-time" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mb-4">
+                        <label for="lecture-subject" class="block text-sm font-medium text-gray-700">Lecture Subject</label>
+                        <select id="lecture-subject" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="ml-[40%] w-32 bg-blue-600 text-white p-2 rounded-md">Add Lecture</button>
+                </form>
+            </div>
+            <div class="lecture-list w-full mt-12" id="lecture-list">
+                
+            </div>
+        </div>
+        </div>
+    </div>
+
+    
+    <script src="javascripts/teacher.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#8511B4] h-full w-full">
+    <nav class="fixed flex justify-between items-center pt-3 px-20">
+        <img class="h-28 w-28" src="images/classroom++.png" alt="">
+        <div class="text-white flex gap-10 text-semibold">
+            <a href="">PROFILE</a>
+            <a href="">INSTITUTE</a>
+            <a href="">PROFILE</a>
+        </div>
+    </nav>
+    <hr class="mx-20">
+    <div class="main w-[88vw] h-screen ml-20 mt-5 flex justify-between items-center gap-3">
+        <div class="profile-section bg-white w-[24vw] h-screen rounded-lg overflow-hidden">
+            <div class="profile bg-blue-300 w-[18vw] h-[14vw] m-8 rounded-lg"></div>
+            <div class="menu w-[18vw] h-[46vh] bg-red-500 rounded-lg m-8 block">
+                <span class="inline-block p-5">
+                    <a class="mr-32 mb-8" href="#" id="create-lecture-btn">Create Lecture</a>
+                    <hr class="my-4">
+                    <a class="mr-28 mb-8" href="">Mark Attendance</a>
+                    <hr class="my-4">
+                    <a class="mr-36 mb-8" href="">Settings</a>
+                </span>
+            </div>
+            <div class="w-[18vw] h-[8vh] bg-green-500 rounded-lg m-8 flex items-center pl-6">
+                <h1>Log Out</h1>
+            </div>
+        </div>
+        <div class="lecture-section bg-blue-300 w-[70vw] h-screen rounded-lg">
+            <div class="time-subject bg-red-500 w-full h-20 flex justify-between px-10 items-center font-semibold">
+                <h1>SEM 1 - 27 JUL 2024</h1>
+                <h1>Time - 9:00 AM</h1>
+            </div>
+            <div class="mt-6 ml-10">
+                <a class="w-30 h-18 bg-blue-600 p-4 rounded-lg font-semibold" href="#" id="show-lecture-form">Create Lecture</a>
+            </div>
+            <div id="lecture-form" class="hidden mt-6 ml-10">
+                <form id="new-lecture-form" class="bg-white p-4 rounded-lg shadow-md">
+                    <div class="mb-4">
+                        <label for="start-time" class="block text-sm font-medium text-gray-700">Start Time</label>
+                        <input type="time" id="start-time" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mb-4">
+                        <label for="end-time" class="block text-sm font-medium text-gray-700">End Time</label>
+                        <input type="time" id="end-time" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mb-4">
+                        <label for="lecture-subject" class="block text-sm font-medium text-gray-700">Lecture Subject</label>
+                        <select id="lecture-subject" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md">Add Lecture</button>
+                </form>
+            </div>
+            <div class="lecture-list w-full mt-12" id="lecture-list">
+                <div class="lecture-one bg-zinc-300 w-[60vw] h-20 ml-10 rounded-lg flex justify-between items-center px-6 font-semibold">
+                    <div class="Time">10:00 AM - 11:00 AM</div>
+                    <div class="subject">COMPILER CONSTRUCTION</div>
+                    <div class="flex gap-3">
+                        <a class="bg-blue-600 p-3 rounded-lg" href="">ATTEND</a>
+                        <button class="bg-red-600 p-3 rounded-lg delete-btn">DELETE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/teacher.js"></script>
+</body>
+</html> -->
+

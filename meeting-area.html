@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <style>
+        #root {
+            width: 100vw;
+            height: 100vh;
+            }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-[#8511B4]">
+    <nav class="flex justify-between items-center pt-3 px-20">
+        <img class="h-28 w-28" src="images/classroom++.png" alt="">
+        <div class="text-white flex gap-10 text-semibold">
+            <a href="">HOME</a>
+            <a href="">INSTITUTE</a>
+            <a href="">PROFILE</a>
+        </div>
+    </nav>
+    <hr class="mx-20">
+    <div class="p-20 flex justify-center items-center">
+        <a class="outline-none rounded-lg p-3 text-white bg-green-600" href="#">Student Attendance</a>
+    </div>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/@zegocloud/zego-uikit-prebuilt/zego-uikit-prebuilt.js"></script>
+<script>
+window.onload = function () {
+    function getUrlParams(url) {
+        let urlStr = url.split('?')[1];
+        const urlSearchParams = new URLSearchParams(urlStr);
+        const result = Object.fromEntries(urlSearchParams.entries());
+        return result;
+    }
+
+
+        // Generate a Token by calling a method.
+        // @param 1: appID
+        // @param 2: serverSecret
+        // @param 3: Room ID
+        // @param 4: User ID
+        // @param 5: Username
+    const roomID = getUrlParams(window.location.href)['roomID'] || (Math.floor(Math.random() * 10000) + "");
+    const userID = Math.floor(Math.random() * 10000) + "";
+    const userName = "userName" + userID;
+    const appID = 211193122;
+    const serverSecret = "ec4da9005ee13c7b53266289e1b06b1f";
+    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, userID, userName);
+
+    
+        const zp = ZegoUIKitPrebuilt.create(kitToken);
+        zp.joinRoom({
+            container: document.querySelector("#root"),
+            sharedLinks: [{
+                name: 'Personal link',
+                url: window.location.protocol + '//' + window.location.host  + window.location.pathname + '?roomID=' + roomID,
+            }],
+            scenario: {
+                mode: ZegoUIKitPrebuilt.VideoConference,
+            },
+                
+           	turnOnMicrophoneWhenJoining: true,
+           	turnOnCameraWhenJoining: true,
+           	showMyCameraToggleButton: true,
+           	showMyMicrophoneToggleButton: true,
+           	showAudioVideoSettingsButton: true,
+           	showScreenSharingButton: true,
+           	showTextChat: true,
+           	showUserList: true,
+           	maxUsers: 50,
+           	layout: "Sidebar",
+           	showLayoutButton: true,
+         
+            });
+}
+</script>
+
+</html>
